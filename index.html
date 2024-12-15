@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugar Spoon Café</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light beige background */
+            color: #3e2723; /* Brown text */
+            scroll-behavior: smooth;
+            font-size: 18px;
+        }
+
+        /* Glitter Background Effect */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #d9c2a2, #b87f61, #d8ad8a);
+            background-size: 200% 200%;
+            animation: glitter 8s infinite;
+            z-index: -1;
+        }
+
+        @keyframes glitter {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Header */
+        header {
+            background-image: url('download (1).jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Logo Positioning */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 150px; /* Adjust the logo size */
+        }
+
+        /* Cursive Font for Title */
+        header h1 {
+            font-family: 'Dancing Script', cursive; /* Cursive font for title */
+            font-size: 2.5rem; /* Smaller header text */
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            background-color: rgba(169, 131, 98, 0.8); /* Beige-brown color */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #b87f61; /* Dark brown on hover */
+            box-shadow: 0 4px 8px rgba(169, 131, 98, 0.4);
+        }
+
+        /* Menu Section */
+        #menu {
+            background-image: url('donut.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        #menu h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #3e2723; /* Dark brown */
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #5e3e2e; /* Lighter brown */
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(94, 62, 46, 0.4);
+        }
+
+        /* Box Styling for Clickable Sections */
+        .box {
+            display: block;
+            background-color: #f5e0c3; /* Light beige background for boxes */
+            border: 2px solid #d8ad8a; /* Soft brown border */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            text-align: center;
+            text-decoration: none;
+            color: #3e2723; /* Dark brown text */
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #e8d0a9; /* Slightly darker beige */
+        }
+
+        .box h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .box p {
+            font-size: 1rem;
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            background-color: #b87f61; /* Brown background for contact section */
+            color: white;
+            padding: 40px;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3e2723; /* Dark brown */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: #5e3e2e; /* Lighter brown */
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(169, 131, 98, 0.9); /* Beige-brown footer */
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        footer ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        footer ul li a:hover {
+            color: #ffe4e6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo Section -->
+        <img src="pic1.png" alt="Sugar Spoon Café Logo" class="logo">
+
+        <h1>Sugar Spoon Café</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Sugar Spoon Café</h2>
+        <p>Stirring Sweet Moments, One Spoonful at a Time.</p>
+        <a href="#menu" class="btn">Explore Menu</a>
+    </section>
+
+    <section id="menu">
+        <h3>Our Menu</h3>
+
+        <a href="capuccino.html" class="box">
+            <h3>Cappuccino</h3>
+            <p>A classic blend of espresso, steamed milk, and foam.</p>
+        </a>
+        <a href="latte.html" class="box">
+            <h3>Latte</h3>
+            <p>Smooth and creamy, topped with the perfect foam.</p>
+        </a>
+        <a href="tea.html" class="box">
+            <h3>Tea</h3>
+            <p>Rich and bold, for the true tea lover.</p>
+        </a>
+        <a href="pastries.html" class="box">
+            <h3>Pastries</h3>
+            <p>Freshly baked croissants, muffins, and cookies.</p>
+        </a>
+        <a href="smoothies.html" class="box">
+            <h3>Smoothies</h3>
+            <p>Delicious blends of fruits and yogurt for a refreshing treat.</p>
+        </a>
+    </section>
+
+    <section id="gallery">
+        <h3>Gallery</h3>
+        <a href="gallery.html" class="box">
+            <h3>View Our Gallery</h3>
+            <p>Take a glimpse at the ambiance and delightful dishes.</p>
+        </a>
+    </section>
+
+    <section id="events">
+        <h3>Mission and Vision</h3>
+        <a href="mission.html" class="box">
+            <h3>They envisioned a space where people could escape the hustle of daily life and indulge in a little slice of happiness.</h3>
+            <p>Sugar Spoon, reflects the simplicity of stirring sweetness into life, just like stirring a spoonful of sugar into a cup of tea.</p>
+        </a>
+    </section>
+
+    <section id="contact" class="contact-info">
+        <h3>Contact Information</h3>
+        <p><strong>Phone:</strong> 09793694215</p>
+        <p><strong>Email:</strong> sugarsponcafe.com</p>
+        <p><strong>Address:</strong> 366 Intramuros, Philippines</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sugar Spoon Café</p>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </footer>
+
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+</body>
+</html>
